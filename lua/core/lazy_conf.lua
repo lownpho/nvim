@@ -1,4 +1,7 @@
--- bootstrap lazy
+-- This file contains the configuration for lazy.nvim
+-- All plugins are required here and configured elsewhere
+
+-- bootstrap lazy (copypaste from github)
 local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
 if not vim.loop.fs_stat(lazypath) then
   vim.fn.system({
@@ -13,8 +16,8 @@ end
 vim.opt.rtp:prepend(lazypath)
 
 -- lazy config
+-- Configs go here
 require("lazy").setup({
-  "folke/which-key.nvim",
-  { "folke/neoconf.nvim", cmd = "Neoconf" },
-  "folke/neodev.nvim",
+  require("plugins.other_stuff"),
+  require("plugins.neotree")
 })
