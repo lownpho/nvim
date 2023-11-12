@@ -19,5 +19,7 @@ vim.keymap.set("n", "<s-tab>", ":bprevious<cr>")
 vim.keymap.set("n", "<leader>h", ":nohlsearch<cr>")
 
 -- Neotree stuff
-vim.keymap.set('n', '<C-n>', ':Neotree<CR>')
+vim.keymap.set('n', '<C-n>', ':Neotree toggle<CR>')
+
+-- GitSigns keymaps are there for convenience, might be moved here someday
 
