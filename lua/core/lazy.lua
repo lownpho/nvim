@@ -17,5 +17,18 @@ vim.opt.rtp:prepend(lazypath)
 
 -- lazy config
 -- Configs go here
-require("lazy").setup("plugins")
+-- Weird brace work but allow mor imports
+require("lazy").setup({
+  { import = "plugins" } 
+}, {
+
+  -- Check for updates but don't notify me
+  checker = {
+    enabled = true,
+    notify = false
+  },
+  change_detection = {
+    notify = false
+  }
+})
 
