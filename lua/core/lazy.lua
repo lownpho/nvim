@@ -17,9 +17,5 @@ vim.opt.rtp:prepend(lazypath)
 
 -- lazy config
 -- Configs go here
-require("lazy").setup({
-  require("plugins.other_stuff"),
-  require("plugins.neotree"),
-  require("plugins.everforest")
-})
+require("lazy").setup("plugins")
 
