@@ -19,7 +19,8 @@ vim.opt.rtp:prepend(lazypath)
 -- Configs go here
 -- Weird brace work but allow mor imports
 require("lazy").setup({
-  { import = "plugins" } 
+  { import = "plugins" },
+  { import = "lsp" }
 }, {
 
   -- Check for updates but don't notify me
