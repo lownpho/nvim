@@ -53,6 +53,8 @@ return {
         "black",        -- python formatter
         "pylint",       -- python linter
         "eslint_d",     -- js linter
+        "cmakelint",    -- cmake linter
+        "shellcheck",   -- bash linter
       },
     })
   end,

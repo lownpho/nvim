@@ -15,7 +15,7 @@ return {
         yaml = { "prettier" },
         markdown = { "prettier" },
         lua = { "stylua" },
-        cpp = { "clang_format" },
+        cpp = { "clang-format" },
         python = { { "isort", "black" } },
       },
       format_on_save = {
