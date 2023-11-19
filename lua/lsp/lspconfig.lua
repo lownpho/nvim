@@ -59,9 +59,6 @@ return {
 
       opts.desc = "Restart LSP"
       keymap.set("n", "<leader>rs", ":LspRestart<CR>", opts) -- mapping to restart lsp if necessary
-      -- clangd only setting
-      opts.desc = "S(w)itch between header and implementation"
-      keymap.set("n", "<leader>gw", ":ClangdSwitchSourceHeader<CR>", opts) -- mapping to restart lsp if necessary
     end
 
     -- used to enable autocompletion (assign to every lsp server config)
@@ -139,13 +136,15 @@ return {
     -- configure clangd (TODO)
     lspconfig["clangd"].setup({
       capabilities = capabilities,
-      on_attach = on_attach
-    })
+      on_attach = function()
+        require("clangd_extensions.inlay_hints").setup_autocmd()
+        require("clangd_extensions.inlay_hints").set_inlay_hints()
 
-    -- cmake (TODO)
-    lspconfig["clangd"].setup({
-      capabilities = capabilities,
-      on_attach = on_attach
+        opts.desc = "S(w)itch between header and implementation"
+        keymap.set("n", "<leader>gw", ":ClangdSwitchSourceHeader<CR>", opts)
+        opts.desc = "View abstract syntax tree"
+        keymap.set("n", "<leader>at", ":ClangdAST<CR>", opts)
+      end
     })
 
     -- svls (TODO)
