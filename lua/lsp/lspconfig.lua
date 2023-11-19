@@ -5,6 +5,7 @@ return {
     "hrsh7th/cmp-nvim-lsp",
     -- rename files through neotree
     { "antosha417/nvim-lsp-file-operations", config = true },
+    "p00f/clangd_extensions.nvim"
   },
   config = function()
     -- import lspconfig plugin
@@ -16,7 +17,7 @@ return {
     local keymap = vim.keymap -- for conciseness
 
     local opts = { noremap = true, silent = true }
-    local on_attach = function(client, bufnr)
+    local on_attach = function(_, bufnr)
       opts.buffer = bufnr
 
       -- set keybinds
@@ -58,6 +59,9 @@ return {
 
       opts.desc = "Restart LSP"
       keymap.set("n", "<leader>rs", ":LspRestart<CR>", opts) -- mapping to restart lsp if necessary
+      -- clangd only setting
+      opts.desc = "S(w)itch between header and implementation"
+      keymap.set("n", "<leader>gw", ":ClangdSwitchSourceHeader<CR>", opts) -- mapping to restart lsp if necessary
     end
 
     -- used to enable autocompletion (assign to every lsp server config)
@@ -161,6 +165,5 @@ return {
       capabilities = capabilities,
       on_attach = on_attach
     })
-
   end,
 }
